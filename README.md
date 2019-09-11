@@ -16,7 +16,7 @@ make run
 make stop
 ```
 
-相关信息:
+### 相关信息:
 * 数据库
   * 用户名:postgres
   * 密码:homerSeven
