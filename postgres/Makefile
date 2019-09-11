@@ -1,5 +1,8 @@
 password=homerSeven
 
+init:
+	make pull;
+	make cp;
 pull:
 	docker pull postgres:11-alpine;
 cp:

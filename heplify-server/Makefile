@@ -1,6 +1,9 @@
 db=192.168.40.73
 dbpass=homerSeven
 
+init:
+	make pull;
+
 pull:
 	docker pull sipcapture/heplify-server:master;
 
