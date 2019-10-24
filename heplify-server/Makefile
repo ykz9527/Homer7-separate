@@ -1,4 +1,4 @@
-db=192.168.40.73
+db=192.168.40.79
 dbpass=homerSeven
 
 init:
@@ -11,8 +11,8 @@ run:
 	docker run  \
 	--name hepserver \
 	--restart="always" \
-	-p 9090:9090 \
-	-p 9090:9090/udp \
+	-p 9060:9060 \
+	-p 9060:9060/udp \
 	-m 1024m \
 	-e HEPLIFYSERVER_DBDRIVER=postgres \
 	-e HEPLIFYSERVER_HEPADDR=0.0.0.0:9060 \
@@ -25,7 +25,13 @@ run:
 	-e HEPLIFYSERVER_LOGSTD=true \
 	-e HEPLIFYSERVER_PROMADDR=0.0.0.0:9096 \
 	-e HEPLIFYSERVER_DBDROPDAYS=7 \
+	-e HEPLIFYSERVER_ALEGIDS=X-callid \
+	-e HEPLIFYSERVER_BLEGCID=X-callid \
+	-e HEPLIFYSERVER_BLEGDETECT=1 \
 	-d -i sipcapture/heplify-server:master ./heplify-server
 
 stop:
 	docker rm -f hepserver
+
+logs:
+	docker logs hepserver -f

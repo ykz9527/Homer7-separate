@@ -1,4 +1,4 @@
-db=192.168.40.73
+db=192.168.40.79
 dbpass=homerSeven
 
 init:
@@ -19,3 +19,6 @@ run:
 
 stop:
 	docker rm -f webserver
+
+logs:
+	docker logs webserver -f
